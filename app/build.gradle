@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion project.compileSdkVersion
+    buildToolsVersion project.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.rzhilich.activityflags"
+        minSdkVersion 15
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+
+        manifestPlaceholders = [launchMode: "standard"]
+    }
+
+
+    productFlavors {
+        scenarioA {
+        }
+
+        scenarioB {
+            manifestPlaceholders = [launchMode: "singleTop"]
+        }
+
+        scenarioC {
+            manifestPlaceholders = [launchMode: "singleTask"]
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
